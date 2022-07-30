@@ -1,7 +1,7 @@
 package fernandez.alejandro.editor;
 
 import javax.swing.*;
-
+import java.awt.event.*;
 public class Main {
     public static void main(String[] args) {
         Marco marco = new Marco( );
@@ -68,7 +68,7 @@ public class Main {
             tPane = new JTabbedPane();
             //--------------------------------------------------------
 
-            creaPanel();
+
             add(panelMenu);
             add(tPane);
 
@@ -79,6 +79,16 @@ public class Main {
 
             if (menu.equals("archivo")){
                 archivo.add(elementoItem);
+                if (accion.equals("nuevo")){
+                    elementoItem.addActionListener(new ActionListener(){
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            creaPanel();
+                        }
+                    });
+
+
+                }
             } else if (menu.equals("editar")) {
                 editar.add(elementoItem);
             } else if (menu.equals("selección")) {
